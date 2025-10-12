@@ -1,4 +1,4 @@
-name: 'microbook'
+name: 'Microbook infrastructure'
 services:
   catalog-database:
     image: postgres:15-alpine
