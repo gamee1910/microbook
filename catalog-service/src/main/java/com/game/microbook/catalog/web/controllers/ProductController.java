@@ -1,13 +1,13 @@
 package com.game.microbook.catalog.web.controllers;
 
-import static com.game.microbook.catalog.domain.ProductNotFoundException.productNotFoundException;
-
 import com.game.microbook.catalog.domain.PagedResult;
 import com.game.microbook.catalog.domain.Product;
 import com.game.microbook.catalog.domain.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import static com.game.microbook.catalog.domain.ProductNotFoundException.productNotFoundException;
 
 @RestController
 @RequiredArgsConstructor

@@ -34,14 +34,12 @@ jobs:
         run: ./mvnw -ntp verify
 
       - name: Login to Dockerhub
-        if: github.event.name == 'push'
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and Publish Docker Image
-        if: github.event.name == 'push'
         run: |
           ./mvnw spring-boot:build-image -DskipTests
           echo "Pushing the image $DOCKER_IMAGE_NAME to Docker Hub..."
