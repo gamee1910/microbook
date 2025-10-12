@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     env:
       working-directory: ./catalog-service
       DOCKER_IMAGE_NAME: ${{secrets.DOCKERHUB_USERNAME}}/microbook-catalog-service
