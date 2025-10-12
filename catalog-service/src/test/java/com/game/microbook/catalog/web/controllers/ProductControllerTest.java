@@ -42,7 +42,10 @@ class ProductControllerTest extends AbstractIntegrationTest {
                 .statusCode(200)
                 .body("code", is("P110"))
                 .body("name", is("A Thousand Splendid Suns"))
-                .body("description", is("A Thousand Splendid Suns is a breathtaking story set against the volatile events of Afghanistan's last thirty years—from the Soviet invasion to the reign of the Taliban to post-Taliban rebuilding—that puts the violence, fear, hope, and faith of this country in intimate, human terms."))
+                .body(
+                        "description",
+                        is(
+                                "A Thousand Splendid Suns is a breathtaking story set against the volatile events of Afghanistan's last thirty years—from the Soviet invasion to the reign of the Taliban to post-Taliban rebuilding—that puts the violence, fear, hope, and faith of this country in intimate, human terms."))
                 .body("price", is(15.5F))
                 .body("imageUrl", is("https://images.gr-assets.com/books/1345958969l/128029.jpg"));
     }
