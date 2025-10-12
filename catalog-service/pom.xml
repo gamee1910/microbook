@@ -28,6 +28,7 @@
     </scm>
     <properties>
         <java.version>17</java.version>
+        <dockerImageName>hauhh/microbook-${project.artifactId}</dockerImageName>
         <spotless-maven-plugin.version>3.0.0</spotless-maven-plugin.version>
     </properties>
     <dependencies>
@@ -180,12 +181,12 @@
                 <version>${spotless-maven-plugin.version}</version>
                 <configuration>
                     <java>
-                        <importOrder />
-                        <removeUnusedImports />
+                        <importOrder/>
+                        <removeUnusedImports/>
                         <palantirJavaFormat>
                             <version>2.74.0</version>
                         </palantirJavaFormat>
-                        <formatAnnotations />
+                        <formatAnnotations/>
                     </java>
                 </configuration>
                 <executions>
@@ -193,6 +194,22 @@
                         <phase>compile</phase>
                         <goals>
                             <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <image>
+                        <name>${dockerImageName}</name>
+                    </image>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build-info</goal>
                         </goals>
                     </execution>
                 </executions>
