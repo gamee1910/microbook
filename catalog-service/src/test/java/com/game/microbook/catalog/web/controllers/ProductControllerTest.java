@@ -1,17 +1,16 @@
 package com.game.microbook.catalog.web.controllers;
 
-import com.game.microbook.catalog.AbstractIntegrationTest;
-import com.game.microbook.catalog.domain.Product;
-import io.restassured.http.ContentType;
-import org.junit.jupiter.api.Test;
-import org.springframework.test.context.jdbc.Sql;
-
-import java.math.BigDecimal;
-
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
+
+import com.game.microbook.catalog.AbstractIntegrationTest;
+import com.game.microbook.catalog.domain.Product;
+import io.restassured.http.ContentType;
+import java.math.BigDecimal;
+import org.junit.jupiter.api.Test;
+import org.springframework.test.context.jdbc.Sql;
 
 @Sql("/test-data.sql")
 class ProductControllerTest extends AbstractIntegrationTest {
@@ -78,5 +77,4 @@ class ProductControllerTest extends AbstractIntegrationTest {
                 .statusCode(404)
                 .body("message", is("Product with code " + code + " does not exist"));
     }
-
 }

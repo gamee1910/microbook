@@ -1,17 +1,15 @@
 package com.game.microbook.catalog.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.game.microbook.catalog.IntegrationTestConfiguration;
+import java.math.BigDecimal;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.jdbc.Sql;
-
-import java.math.BigDecimal;
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * There are two main approaches for writing repository integration tests
@@ -55,10 +53,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * </ol>
  */
 @Sql("/test-data.sql")
-@DataJpaTest(
-        properties = {
-                "spring.test.database.replace=none"
-        })
+@DataJpaTest(properties = {"spring.test.database.replace=none"})
 @Import(IntegrationTestConfiguration.class)
 class ProductRepositoryTest {
 
@@ -77,7 +72,9 @@ class ProductRepositoryTest {
         assertThat(product).isNotNull();
         assertThat(product.getCode()).isEqualTo("P110");
         assertThat(product.getName()).isEqualTo("A Thousand Splendid Suns");
-        assertThat(product.getDescription()).isEqualTo("A Thousand Splendid Suns is a breathtaking story set against the volatile events of Afghanistan's last thirty years—from the Soviet invasion to the reign of the Taliban to post-Taliban rebuilding—that puts the violence, fear, hope, and faith of this country in intimate, human terms.");
+        assertThat(product.getDescription())
+                .isEqualTo(
+                        "A Thousand Splendid Suns is a breathtaking story set against the volatile events of Afghanistan's last thirty years—from the Soviet invasion to the reign of the Taliban to post-Taliban rebuilding—that puts the violence, fear, hope, and faith of this country in intimate, human terms.");
         assertThat(product.getImageUrl()).isEqualTo("https://images.gr-assets.com/books/1345958969l/128029.jpg");
         assertThat(product.getPrice()).isEqualTo(new BigDecimal("15.50"));
     }
@@ -85,6 +82,5 @@ class ProductRepositoryTest {
     @Test
     void shouldReturnProductNotFoundException() {
         assertThat(productRepository.findByCode("invalid_product_code")).isEmpty();
-
     }
 }
