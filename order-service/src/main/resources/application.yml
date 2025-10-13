@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: order-service
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:25432/postgres}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASS:postgres}
+  jpa:
+    open-in-view: false
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USER:guest}
+    password: ${RABBITMQ_PASS:guest}
+server:
+  port: 8082
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  info:
+    git:
+      mode: full
+springdoc:
+  swagger-ui:
+    path: index
+
+orders:
+  orderEventsExchange: orders-exchange
+  newOrdersQueue: new-orders
+  deliveredOrdersQueue: delivered-orders
+  cancelledOrdersQueue: cancelled-orders
+  errorOrdersQueue: error-orders
