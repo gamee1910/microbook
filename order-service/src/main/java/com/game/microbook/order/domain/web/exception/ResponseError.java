@@ -1,4 +1,3 @@
 package com.game.microbook.order.domain.web.exception;
 
-record ResponseError(String message) {
-}
+record ResponseError(String message) {}

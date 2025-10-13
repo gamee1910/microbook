@@ -1,16 +1,15 @@
 package com.game.microbook.order.testdata;
 
+import static org.instancio.Select.field;
+
 import com.game.microbook.order.domain.model.Address;
 import com.game.microbook.order.domain.model.CreateOrderRequest;
 import com.game.microbook.order.domain.model.Customer;
 import com.game.microbook.order.domain.model.OrderItem;
-import org.instancio.Instancio;
-
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Set;
-
-import static org.instancio.Select.field;
+import org.instancio.Instancio;
 
 public class TestDataFactory {
     static final List<String> VALID_COUNTIES = List.of("VietNam", "Germany");
