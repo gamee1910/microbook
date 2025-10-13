@@ -1,7 +1,6 @@
 package com.game.microbook.order.domain;
 
 import jakarta.persistence.*;
-
 import java.math.BigDecimal;
 
 @Entity

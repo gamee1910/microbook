@@ -1,5 +1,7 @@
 package com.game.microbook.order.web.controllers;
 
+import static org.hamcrest.Matchers.notNullValue;
+
 import com.game.microbook.order.AbstractIntegrationTest;
 import com.game.microbook.order.domain.model.CreateOrderRequest;
 import com.game.microbook.order.testdata.TestDataFactory;
@@ -8,8 +10,6 @@ import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
-
-import static org.hamcrest.Matchers.notNullValue;
 
 class OrderControllerTest extends AbstractIntegrationTest {
 
