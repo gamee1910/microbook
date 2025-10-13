@@ -25,6 +25,7 @@ management:
 springdoc:
   swagger-ui:
     path: index
+  packages-to-scan: com.game.microbook.order.web.controllers
 
 orders:
   orderEventsExchange: orders-exchange
