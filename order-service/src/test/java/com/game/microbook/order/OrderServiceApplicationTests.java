@@ -11,5 +11,4 @@ class OrderServiceApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }
