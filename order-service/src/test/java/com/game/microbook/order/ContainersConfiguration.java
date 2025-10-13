@@ -19,6 +19,6 @@ class ContainersConfiguration {
     @Bean
     @ServiceConnection
     RabbitMQContainer rabbitContainer() {
-        return new RabbitMQContainer(DockerImageName.parse("rabbitmq:latest"));
+        return new RabbitMQContainer(DockerImageName.parse("rabbitmq:4.0.4-management"));
     }
 }
