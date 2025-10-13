@@ -8,12 +8,12 @@ import org.testcontainers.containers.RabbitMQContainer;
 import org.testcontainers.utility.DockerImageName;
 
 @TestConfiguration(proxyBeanMethods = false)
-class TestcontainersConfiguration {
+class ContainersConfiguration {
 
     @Bean
     @ServiceConnection
     PostgreSQLContainer<?> postgresContainer() {
-        return new PostgreSQLContainer<>(DockerImageName.parse("postgres:latest"));
+        return new PostgreSQLContainer<>(DockerImageName.parse("postgres:18-alpine"));
     }
 
     @Bean
