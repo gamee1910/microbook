@@ -145,6 +145,9 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <image>
+                        <name>${dockerImageName}</name>
+                    </image>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
@@ -194,22 +197,6 @@
                         <phase>compile</phase>
                         <goals>
                             <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <image>
-                        <name>${dockerImageName}</name>
-                    </image>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>build-info</goal>
                         </goals>
                     </execution>
                 </executions>
