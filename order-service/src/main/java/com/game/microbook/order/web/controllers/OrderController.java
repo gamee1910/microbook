@@ -22,7 +22,6 @@ class OrderController {
     OrderController(OrderService orderService, SecurityService securityService) {
         this.orderService = orderService;
         this.securityService = securityService;
-
     }
 
     @PostMapping

@@ -1,6 +1,10 @@
 package com.game.microbook.order;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
+
 import io.restassured.RestAssured;
+import java.math.BigDecimal;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,11 +14,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.wiremock.integrations.testcontainers.WireMockContainer;
-
-import java.math.BigDecimal;
-
-import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
 @Import(ContainersConfiguration.class)
 @SpringBootTest(webEnvironment = RANDOM_PORT)
@@ -53,7 +52,7 @@ public abstract class AbstractIntegrationTest {
                                             "name": "%s",
                                             "price": "%f"
                                         }
-                                        """.formatted(code, name, price.doubleValue())))
-        );
+                                        """
+                                        .formatted(code, name, price.doubleValue()))));
     }
 }
