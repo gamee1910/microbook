@@ -27,7 +27,25 @@ springdoc:
     path: index
   packages-to-scan: com.game.microbook.order.web.controllers
 
+resilience4j:
+  retry:
+    backends:
+      catalog-service:
+        max-attempts: 2
+        wait-duration:
+          seconds: 1
+  circuitbreaker:
+    backends:
+      catalog-service:
+        sliding-window-size: 6
+        sliding-window-type: COUNT_BASED
+        minimum-number-of-calls: 4
+        wait-duration-in-open-state:
+          seconds: 20
+        permitted-number-of-calls-in-half-open-state: 2
+        failure-rate-threshold: 50
 orders:
+  catalogServiceUrl: http://localhost:8081
   orderEventsExchange: orders-exchange
   newOrdersQueue: new-orders
   deliveredOrdersQueue: delivered-orders

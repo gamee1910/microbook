@@ -1,7 +1,5 @@
 package com.game.microbook.order.web.controllers;
 
-import static org.hamcrest.Matchers.notNullValue;
-
 import com.game.microbook.order.AbstractIntegrationTest;
 import com.game.microbook.order.domain.model.CreateOrderRequest;
 import com.game.microbook.order.testdata.TestDataFactory;
@@ -11,12 +9,17 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 
+import java.math.BigDecimal;
+
+import static org.hamcrest.Matchers.notNullValue;
+
 class OrderControllerTest extends AbstractIntegrationTest {
 
     @Nested
     class CreateOrdersTests {
         @Test
         void shouldCreateOrderSuccessfully() {
+            mockGetProductByCode("P100", "Computer", new BigDecimal("43"));
             String payload =
                     """
                             {
@@ -24,7 +27,7 @@ class OrderControllerTest extends AbstractIntegrationTest {
                                 {
                                   "code": "P100",
                                   "name": "Computer",
-                                  "price": 6700,
+                                  "price": 43,
                                   "quantity": 1
                                 }
                               ],
@@ -35,11 +38,11 @@ class OrderControllerTest extends AbstractIntegrationTest {
                               },
                               "deliveryAddress": {
                                 "addressLine1": "ABC",
+                                "addressLine2": "none",
                                 "city": "Ho Chi Minh",
-                                "country": "Viet Nam",
                                 "state": "Thu Duc",
                                 "zipCode": "70000",
-                                "addressLine2": "none"
+                                "country": "Viet Nam"
                               }
                             }
                             """;
