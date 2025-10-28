@@ -51,3 +51,4 @@ orders:
   deliveredOrdersQueue: delivered-orders
   cancelledOrdersQueue: cancelled-orders
   errorOrdersQueue: error-orders
+  publishOrderEventsCronJob: 0 */5 * * * *
