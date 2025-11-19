@@ -32,7 +32,7 @@
         <wiremock.version>3.13.1</wiremock.version>
         <wiremock-testcontainers.version>1.0-alpha-15</wiremock-testcontainers.version>
         <dockerImageName>hauhh/microbook-${project.artifactId}</dockerImageName>
-        <spotless-maven-plugin.version>3.0.0</spotless-maven-plugin.version>
+        <spotless-maven-plugin.version>3.1.0</spotless-maven-plugin.version>
     </properties>
     <dependencies>
         <dependency>
